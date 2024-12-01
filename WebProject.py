@@ -11,7 +11,11 @@ def mainPage():
 @app.route('/ShowGamesInfo/')
 def showGamesInfo():
     # connect to Games DB
-    return render_template('GamesInfo.html')
+    db = sqlite3.connect('games.db')
+    cursor = db.cursor()
+    items = cursor.execute('SELECT Name From Games').fetchall()
+    db.close()
+    return render_template('GamesInfo.html', games=items)
 
 @app.route('/InsertNewGame/')
 def newGame():
