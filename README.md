@@ -7,4 +7,7 @@
 - Create DataBase File (games.db)
 
 2024-12-01
-- Create GamesInfo (Show All Game Name)
+- Show GamesInfo (Show All Game Name)
+
+2024-12-15
+- Create Game Form (Create game in DB)
