@@ -6,5 +6,33 @@
 </head>
 <body>
     <h1>Insert New Game</h1>
+    <form action="/InsertNewGame/" method="POST">
+        <label for="name">Game Name:</label>
+        <input type="text" id="name", name="name" required><br><br>
+
+        <label for="year">Release Date:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="publisher">Game Publisher:</label>
+        <input type="text" id="publisher" name="publisher" required><br><br>
+
+        <label for="platform">Platform:</label>
+        <select id="platform" name="platform" required>
+            <option value="" disabled selected>Select Platform</option>
+            {% for platform in platforms %}
+                <option value="{{ platform }}">{{ platform }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre" required>
+            <option value="" disabled selected>Select Genre</option>
+            {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Add Game</button>
+    </form>
 </body>
 </html>
