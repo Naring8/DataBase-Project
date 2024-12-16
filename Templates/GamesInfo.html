@@ -9,7 +9,9 @@
     <ul>
         {% for game in games %}
         <li>
-            {{game[0]}}
+            Game Name: {{game[0]}} <br>
+            Game Platform: {{game[1]}} <br>
+            Game Global Sales: ${{game[2]}}M <br><br>
             <!-- <a href="/ShowGamesInfo/{{ game[0] }}/">{{ game[0] }}</a> -->
         </li>
         {% endfor %}

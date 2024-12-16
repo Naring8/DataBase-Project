@@ -5,9 +5,26 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Delete Video Game</h1>
-    <p>
+    <h1>Delete Game Page</h1>
+    <form method="POST" action="/DeleteGame/">
+        <h2>Search Game to Delete</h2>
+        <label for="name">Game Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
-    </p>
+        <label for="platform">Platform:</label>
+        <input type="text" id="platform" name="platform" required><br><br>
+
+        <button type="submit">Delete Game</button>
+    </form>
+    <br>
+
+    <!-- Success and Error Messages -->
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if success %}
+        <p style="color:green;">{{ success }}</p>
+    {% endif %}
 </body>
 </html>

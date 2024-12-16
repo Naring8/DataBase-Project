@@ -5,8 +5,50 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Update Video Games</h1>
-    <p>
-    </p>
+    <h1>Update Games Sales</h1>
+    
+        <!-- Search Form -->
+        <form method="POST" action="/UpdateGame/">
+            <h2>Search Game</h2>
+            <label for="name">Game Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="platform">Platform:</label>
+            <input type="text" id="platform" name="platform" required><br><br>
+    
+            <button type="submit" name="action" value="search">Search</button>
+        </form>
+    
+        <br>
+    
+        <!-- Display Current Sales and Update Form -->
+        {% if game %}
+            <h2>Game Found</h2>
+            <p><strong>Name:</strong> {{ game.name }}</p>
+            <p><strong>Platform:</strong> {{ game.platform }}</p>
+            <p><strong>Current Sales:</strong> ${{ game.sales }}M</p>
+
+            <form method="POST" action="/UpdateGame/">
+                <h2>Update Sales</h2>
+                <input type="hidden" name="name" value="{{ game.name }}">
+                <input type="hidden" name="platform" value="{{ game.platform }}">
+    
+                <label for="new_sales">New Sales:</label>
+                <input type="text" id="new_sales" name="new_sales" required><br><br>
+    
+                <button type="submit" name="action" value="update">Update Sales</button>
+            </form>
+        {% endif %}
+    
+        <br>
+    
+        <!-- Error and Success Messages -->
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+    
+        {% if success %}
+            <p style="color:green;">{{ success }}</p>
+        {% endif %}
 </body>
 </html>
